@@ -4,9 +4,6 @@ from data_generation import generate_data
 from visualizations import plot_tour_graph
 import matplotlib.pyplot as plt
 
-# -------------------------------
-# Solver Function
-# -------------------------------
 def nearest_neighbor_solver_with_penalties(coords, time_windows, travel_time):
     num_cities = len(coords)
     visited = [False] * num_cities
@@ -58,20 +55,12 @@ def nearest_neighbor_solver_with_penalties(coords, time_windows, travel_time):
 
     return route, total_cost
 
-
-# -------------------------------
-# Helper Function
-# -------------------------------
 def convert_route_to_adjacency_matrix(route, num_cities):
     adj_matrix = np.zeros((num_cities, num_cities))
     for i in range(len(route) - 1):
         adj_matrix[route[i], route[i + 1]] = 1
     return adj_matrix
 
-
-# -------------------------------
-# Main Interactive Console App
-# -------------------------------
 def main():
     print("🚗 Nearest Neighbor TSP Solver with Time Windows")
     num_cities = int(input("Enter the number of cities: "))
